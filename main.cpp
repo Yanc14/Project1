@@ -1,21 +1,21 @@
 #include <iostream>
 using namespace std;
-#include<string>
+#include <string>
 #define MAX 1000
-//1ã€å±•ç¤ºèœå•
+// 1¡¢Õ¹Ê¾²Ëµ¥
 void showMenu()
 {
     cout << "***************************" << endl;
-    cout << "*****  1ã€æ·»åŠ è”ç³»äºº  *****" << endl;
-    cout << "*****  2ã€æ˜¾ç¤ºè”ç³»äºº  *****" << endl;
-    cout << "*****  3ã€åˆ é™¤è”ç³»äºº  *****" << endl;
-    cout << "*****  4ã€æŸ¥æ‰¾è”ç³»äºº  *****" << endl;
-    cout << "*****  5ã€ä¿®æ”¹è”ç³»äºº  *****" << endl;
-    cout << "*****  6ã€æ¸…ç©ºè”ç³»äºº  *****" << endl;
-    cout << "*****  0ã€é€€å‡ºé€šè®¯å½•  *****" << endl;
+    cout << "*****  1¡¢Ìí¼ÓÁªÏµÈË  *****" << endl;
+    cout << "*****  2¡¢ÏÔÊ¾ÁªÏµÈË  *****" << endl;
+    cout << "*****  3¡¢É¾³ıÁªÏµÈË  *****" << endl;
+    cout << "*****  4¡¢²éÕÒÁªÏµÈË  *****" << endl;
+    cout << "*****  5¡¢ĞŞ¸ÄÁªÏµÈË  *****" << endl;
+    cout << "*****  6¡¢Çå¿ÕÁªÏµÈË  *****" << endl;
+    cout << "*****  0¡¢ÍË³öÍ¨Ñ¶Â¼  *****" << endl;
     cout << "***************************" << endl;
 }
-//åˆ›å»ºè”ç³»äººå’Œé€šè®¯å½•ç»“æ„ä½“
+// ´´½¨ÁªÏµÈËºÍÍ¨Ñ¶Â¼½á¹¹Ìå
 struct Person
 {
     string m_Name;
@@ -26,90 +26,90 @@ struct Person
 };
 struct Addressbooks
 {
-    //åˆ›å»ºé€šè®¯å½•ç»“æ„ä½“
+    // ´´½¨Í¨Ñ¶Â¼½á¹¹Ìå
     struct Person personArray[MAX];
     int m_Size;
 };
-//2ã€æ·»åŠ è”ç³»äºº
+// 2¡¢Ìí¼ÓÁªÏµÈË
 void Addperson(Addressbooks *abs)
 {
-    if(abs->m_Size==MAX)
+    if (abs->m_Size == MAX)
     {
-        cout<<"é€šè®¯å½•å·²æ»¡ï¼Œæ·»åŠ å¤±è´¥ï¼"<<endl;
+        cout << "Í¨Ñ¶Â¼ÒÑÂú£¬Ìí¼ÓÊ§°Ü£¡" << endl;
         return;
     }
     else
     {
-        //æ·»åŠ è”ç³»äººä¿¡æ¯
-        //å§“å
+        // Ìí¼ÓÁªÏµÈËĞÅÏ¢
+        // ĞÕÃû
         string name;
-        cout<<"è¯·è¾“å…¥å§“å:"<<endl;
-        cin>>name;
-        abs->personArray[abs->m_Size].m_Name=name;
-        //æ€§åˆ«
-        int sex=0;
-        cout << "è¯·è¾“å…¥æ€§åˆ«ï¼š" << endl;
-        cout << "1------ç”·" << endl;
-        cout << "2------å¥³" << endl;
-        while(true)
+        cout << "ÇëÊäÈëĞÕÃû:" << endl;
+        cin >> name;
+        abs->personArray[abs->m_Size].m_Name = name;
+        // ĞÔ±ğ
+        int sex = 0;
+        cout << "ÇëÊäÈëĞÔ±ğ£º" << endl;
+        cout << "1------ÄĞ" << endl;
+        cout << "2------Å®" << endl;
+        while (true)
         {
             cin >> sex;
-            if(sex==1||sex==2)
+            if (sex == 1 || sex == 2)
             {
                 abs->personArray[abs->m_Size].m_Sex = sex;
                 break;
             }
             else
             {
-                cout<<"è¯·é‡æ–°è¾“å…¥ï¼š"<<endl;
+                cout << "ÇëÖØĞÂÊäÈë£º" << endl;
             }
         }
-        
-        //å¹´é¾„
-        cout<<"è¯·è¾“å…¥å¹´é¾„"<<endl;
-        int age=0;
-        cin>>age;
-        abs->personArray[abs->m_Size].m_Age=age;
-        
-        //æ‰‹æœºå·
-        cout << "è¯·è¾“å…¥æ‰‹æœºå·" << endl;
+
+        // ÄêÁä
+        cout << "ÇëÊäÈëÄêÁä" << endl;
+        int age = 0;
+        cin >> age;
+        abs->personArray[abs->m_Size].m_Age = age;
+
+        // ÊÖ»úºÅ
+        cout << "ÇëÊäÈëÊÖ»úºÅ" << endl;
         int phone = 0;
         cin >> phone;
         abs->personArray[abs->m_Size].m_Phone = phone;
-        
-        // åœ°å€
-        cout << "è¯·è¾“å…¥åœ°å€" << endl;
+
+        // µØÖ·
+        cout << "ÇëÊäÈëµØÖ·" << endl;
         string address;
         cin >> address;
         abs->personArray[abs->m_Size].m_Address = address;
 
-        //æ›´æ–°ç”¨æˆ·æ•°
+        // ¸üĞÂÓÃ»§Êı
         abs->m_Size++;
 
-        cout<<"æ·»åŠ æˆåŠŸ"<<endl;
+        cout << "Ìí¼Ó³É¹¦" << endl;
 
-        system("pause");//æš‚åœç­‰å¾…ä»»æ„è¾“å…¥
-        system("cls");//æ¸…ç©ºå±å¹•
+        system("pause"); // ÔİÍ£µÈ´ıÈÎÒâÊäÈë
+        system("cls");   // Çå¿ÕÆÁÄ»
     }
 };
-//3ã€æ˜¾ç¤ºè”ç³»äºº
+// 3¡¢ÏÔÊ¾ÁªÏµÈË
 void Showperson(Addressbooks *abs)
 {
-    //æ˜¾ç¤ºæ‰€æœ‰è”ç³»äºº
-    //åˆ¤æ–­é€šè®¯å½•ä¸­çš„äººæ•°æ˜¯å¦ä¸ºé›¶
-    if(abs->m_Size==0)
+    // ÏÔÊ¾ËùÓĞÁªÏµÈË
+    // ÅĞ¶ÏÍ¨Ñ¶Â¼ÖĞµÄÈËÊıÊÇ·ñÎªÁã
+    if (abs->m_Size == 0)
     {
-        cout<<"é€šè®¯å½•ä¸ºç©ºï¼"<<endl;
+        cout << "Í¨Ñ¶Â¼Îª¿Õ£¡" << endl;
     }
     else
     {
-        for(int i=0;i<abs->m_Size;i++)
+        for (int i = 0; i < abs->m_Size; i++)
         {
-            cout << "å§“åï¼š"  <<abs->personArray[i].m_Name << endl;
-            cout << "æ€§åˆ«ï¼š" << abs->personArray[i].m_Sex << endl;
-            cout << "å¹´é¾„ï¼š" << abs->personArray[i].m_Age << endl;
-            cout << "ç”µè¯ï¼š" << abs->personArray[i].m_Phone << endl;
-            cout << "ä½å€ï¼š" << abs->personArray[i].m_Address<< endl;
+            cout << "ĞÕÃû£º" << abs->personArray[i].m_Name << endl;
+            cout << "ĞÔ±ğ£º" << abs->personArray[i].m_Sex << endl;
+            cout << "ÄêÁä£º" << abs->personArray[i].m_Age << endl;
+            cout << "µç»°£º" << abs->personArray[i].m_Phone << endl;
+            cout << "×¡Ö·£º" << abs->personArray[i].m_Address << endl;
         }
     }
 
@@ -120,20 +120,22 @@ void Showperson(Addressbooks *abs)
 int main()
 {
 
-    //åˆ›å»ºé€šè®¯å½•å®ä½“
+    // ´´½¨Í¨Ñ¶Â¼ÊµÌå
     Addressbooks abs;
-    //åˆå§‹åŒ–
-    abs.m_Size=0;;
-    while(true){
-        showMenu();//å±•ç¤ºèœå•
-        int select = 0; //é€‰æ‹©åŠŸèƒ½
+    // ³õÊ¼»¯
+    abs.m_Size = 0;
+    cout<<"ÎÒÖÕÓÚ³É¹¦À²£¡"<<endl;
+    while (true)
+    {
+        showMenu();     // Õ¹Ê¾²Ëµ¥
+        int select = 0; // Ñ¡Ôñ¹¦ÄÜ
         cin >> select;
         switch (select)
         {
-        case 1: // æ·»åŠ è”ç³»äºº
+        case 1: // Ìí¼ÓÁªÏµÈË
             Addperson(&abs);
             break;
-        case 2: // æ˜¾ç¤ºè”ç³»äºº
+        case 2: // ÏÔÊ¾ÁªÏµÈË
             Showperson(&abs);
             break;
         case 3:
@@ -149,8 +151,8 @@ int main()
             /* code */
             break;
         case 0:
-            cout << "æ‚¨å·²é€€å‡ºé€šè®¯å½•" << endl;
-            return 0;//ç›´æ¥é€€å‡ºmainå¾ªç¯
+            cout << "ÄúÒÑÍË³öÍ¨Ñ¶Â¼" << endl;
+            return 0; // Ö±½ÓÍË³ömainÑ­»·
             break;
         default:
             break;
